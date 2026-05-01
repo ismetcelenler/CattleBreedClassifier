@@ -1,55 +1,66 @@
 # CattleBreedClassifier
 
-Merhaba, ben İsmet. Ailem hayvancılıkla uğraştığı için çocukluğumdan beri bu sektörün içindeyim. Bilgisayar mühendisliği eğitimim boyunca teknoloji ile tarım ve hayvancılığı nasıl birleştirebileceğimi araştırdım. Bu proje de derin öğrenme dersi kapsamında geliştirdiğim, kendi ilgi alanımla akademik çalışmaları bir araya getiren bir sığır ırkı sınıflandırma sistemidir.
+An end-to-end deep learning system designed to accurately classify five distinct cattle breeds using advanced Convolutional Neural Network (CNN) architectures and a modern Flask-based web interface.
 
-## Proje Hakkında
+## About the Project
 
-Bu çalışmada 5 farklı sığır ırkını tanıyabilen bir derin öğrenme modeli geliştirdim. Ayrshire, Brown Swiss, Holstein Friesian, Jersey ve Red Dane ırklarına ait görselleri kullanarak çeşitli derin öğrenme mimarilerini test ettim. Amacım farklı modellerin performanslarını karşılaştırmak ve donanım kısıtları altında en verimli modeli bulmaktı.
+This project aims to automate cattle breed identification using computer vision. The system is trained to recognize five specific breeds: Ayrshire, Brown Swiss, Holstein Friesian, Jersey, and Red Dane. 
 
-Geliştirdiğim modeller arasında sıfırdan tasarladığım temel bir CNN modeli ile birlikte VGG16, ResNet50, MobileNetV2 ve EfficientNetB0 yer alıyor. Eğitim süreçlerinde veri artırma tekniklerini ve transfer öğrenme yöntemini kullanarak modellerin başarı oranını artırdım. Yaptığım testler sonucunda en yüksek başarıyı ve en iyi bellek verimliliğini EfficientNetB0 modeli ile elde ettim.
+To achieve optimal performance under hardware constraints, multiple deep learning architectures were evaluated, including a Custom CNN built from scratch, alongside industry-standard models utilizing transfer learning: VGG16, ResNet50, MobileNetV2, and EfficientNetB0. Data augmentation techniques and learning rate scheduling were implemented to prevent overfitting and improve model generalization.
 
-Ayrıca projeye Flask kullanarak modern bir web arayüzü ekledim. Bu arayüz üzerinden sisteme yüklenen yeni sığır görsellerinin hangi ırka ait olduğu anlık olarak analiz edilebiliyor.
+The final system features a modern, glassmorphism-styled web interface built with Flask, allowing users to upload images via drag-and-drop and receive instant, real-time prediction confidence bars.
 
-## Özellikler
+## Key Features
 
-- 5 farklı sığır ırkının sınıflandırılması
-- PyTorch ile geliştirilmiş derin öğrenme modelleri
-- Model başarımlarının ve eğitim sürelerinin karşılaştırmalı analizi
-- Farklı öğrenme hızları ve aşırı öğrenme durumlarının incelenmesi
-- Flask tabanlı kullanıcı dostu web arayüzü
-- Sürükle bırak destekli görsel yükleme ve tahmin ekranı
+- **Multi-Class Classification:** Accurately distinguishes between 5 cattle breeds.
+- **Model Benchmarking:** Comprehensive comparison of model parameters, training times, and accuracy across 5 different architectures.
+- **Best Performing Model:** EfficientNetB0 achieved the highest accuracy (88.46%) with optimal parameter efficiency (only 4M parameters).
+- **Interactive Web Interface:** Modern, responsive UI with real-time prediction visualizations using Flask and vanilla JS.
+- **Robust Training Pipeline:** Includes data augmentation (rotation, flipping, color jitter), early stopping, and learning rate reduction on plateau.
 
-## Kurulum ve Kullanım
+## Installation and Usage
 
-Projeyi kendi bilgisayarınızda çalıştırmak isterseniz aşağıdaki adımları izleyebilirsiniz.
+To run this project locally, follow these steps:
 
-1. Projeyi bilgisayarınıza indirin:
+1. **Clone the repository:**
 ```bash
-git clone https://github.com/kullaniciadi/CattleBreedClassifier.git
+git clone https://github.com/yourusername/CattleBreedClassifier.git
 cd CattleBreedClassifier
 ```
 
-2. Gerekli kütüphaneleri yükleyin:
+2. **Set up a virtual environment (optional but recommended):**
+```bash
+python -m venv venv
+# On Windows:
+.\venv\Scripts\activate
+# On macOS/Linux:
+source venv/bin/activate
+```
+
+3. **Install the required dependencies:**
 ```bash
 pip install -r requirements.txt
 ```
 
-3. Web uygulamasını başlatın:
+4. **Run the web application:**
 ```bash
 python app.py
 ```
 
-4. Tarayıcınızdan `http://localhost:5000` adresine giderek sistemi kullanmaya başlayabilirsiniz.
+5. **Access the interface:**
+Open your web browser and navigate to `http://localhost:5000` to use the drag-and-drop classifier.
 
-## Dosya Yapısı
+## Repository Structure
 
-- `app.py`: Web uygulamasının çalıştığı ana Flask sunucu dosyası
-- `cnn_assignment.py`: Tüm modellerin eğitildiği, test edildiği ve grafiklerin oluşturulduğu temel Python betiği
-- `save_model.py`: En başarılı modeli web arayüzünde kullanmak üzere hazırlayan ve kaydeden betik
-- `templates/` ve `static/`: Web arayüzünün tasarımını oluşturan HTML, CSS ve JavaScript dosyaları
-- `results/`: Eğitim sonuçlarına ait performans grafikleri, hata matrisleri ve analiz görselleri
-- `İsmet_Çelenler_202213709071_DL_S26.pdf`: Projenin detaylı geliştirme adımlarını ve sonuçlarını içeren rapor
+- `app.py`: Main Flask application server handling image uploads and inference.
+- `cnn_assignment.py`: The core deep learning script containing model definitions, training loops, evaluation metrics, and plot generation.
+- `save_model.py`: Utility script to fine-tune and export the best performing model (EfficientNetB0) for production use.
+- `templates/` & `static/`: HTML, CSS (glassmorphism theme), and JavaScript files for the web frontend.
+- `results/`: Directory containing generated performance graphs, confusion matrices, and error analysis visualizations.
 
-## Sonuç
+## Technologies Used
 
-Geliştirdiğim bu proje ile hayvancılık alanındaki saha bilgimi teknik bilgilerle somut bir ürüne dönüştürmeye çalıştım. Sürü yönetim yazılımları ve akıllı tarım teknolojileri alanında kendimi geliştirmeye devam ediyorum. Sistemle veya kullandığım yöntemlerle ilgili fikir alışverişinde bulunmak isterseniz benimle Github üzerinden iletişime geçebilirsiniz.
+- **Deep Learning Framework:** PyTorch, Torchvision
+- **Web Backend:** Flask
+- **Frontend:** HTML5, CSS3, JavaScript
+- **Data Manipulation & Visualization:** NumPy, Scikit-learn, Matplotlib, Seaborn
