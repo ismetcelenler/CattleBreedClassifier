@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sığır Irkı Tanıma Sistemi</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-elements">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <div class="container">
+        <header class="hero">
+            <div class="logo-icon"><i class="fa-solid fa-cow"></i></div>
+            <h1>Sığır Irkı Tanıma Sistemi</h1>
+            <p>Yapay Zeka Destekli Derin Öğrenme Modeli (EfficientNetB0)</p>
+        </header>
+
+        <main class="main-content">
+            <div class="card upload-card">
+                <div class="drop-zone" id="dropZone">
+                    <div class="drop-zone-content">
+                        <i class="fa-solid fa-cloud-arrow-up upload-icon"></i>
+                        <h3>Görüntü Yükle</h3>
+                        <p>Sürükleyip bırakın veya tıklayarak seçin</p>
+                        <input type="file" id="fileInput" accept="image/jpeg, image/png, image/jpg" hidden>
+                        <button class="btn-primary" onclick="document.getElementById('fileInput').click()">Dosya Seç</button>
+                    </div>
+                    <div class="preview-container" id="previewContainer" style="display: none;">
+                        <img id="imagePreview" src="" alt="Önizleme">
+                        <button class="btn-icon close-btn" id="removeBtn"><i class="fa-solid fa-times"></i></button>
+                    </div>
+                </div>
+                <div class="action-area">
+                    <button id="analyzeBtn" class="btn-analyze" disabled>
+                        <i class="fa-solid fa-wand-magic-sparkles"></i> Analiz Et
+                    </button>
+                </div>
+            </div>
+
+            <div class="card result-card" id="resultCard" style="display: none;">
+                <h2>Analiz Sonuçları</h2>
+                <div class="top-prediction" id="topPrediction">
+                    <span class="label">En Yüksek Eşleşme</span>
+                    <h3 id="topClass">Holstein Friesian</h3>
+                    <div class="confidence-badge" id="topConfidence">92.4%</div>
+                </div>
+                
+                <div class="bars-container" id="barsContainer">
+                    <!-- Bars will be inserted here by JS -->
+                </div>
+            </div>
+            
+            <div class="loading-overlay" id="loadingOverlay" style="display: none;">
+                <div class="spinner"></div>
+                <p>Model analiz ediyor...</p>
+            </div>
+        </main>
+        
+        <footer>
+            <p>İsmet Can Çelenler - Balıkesir Üniversitesi Bilgisayar Mühendisliği</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

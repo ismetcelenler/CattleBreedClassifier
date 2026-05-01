@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+venv/
+env/
+ENV/
+
+# PyTorch Model Weights ve Kurulum Dosyaları (Büyük dosyalar olduğu için Github'a yüklenmez)
+*.pth
+*.pt
+*.whl
+# Veri Seti (Telif ve boyut sebebiyle)
+Cattle Breeds/
+
+# Dönem ödevine ait kişisel notlar ve pdf'ler
+*.pdf
+İsmet_Çelenler_*.md
+odev_content.txt
+uslup.txt
+*_kodlar.txt
+to_pdf.py
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
