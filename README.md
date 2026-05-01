@@ -1,6 +1,5 @@
 # CattleBreedClassifier
 
-Merhaba, ben İsmet. Ailem hayvancılıkla uğraştığı için çocukluğumdan beri bu sektörün içindeyim. Bilgisayar mühendisliği eğitimim boyunca teknoloji ile tarım ve hayvancılığı nasıl birleştirebileceğimi araştırdım. Bu proje de derin öğrenme dersi kapsamında geliştirdiğim, kendi ilgi alanımla akademik çalışmaları bir araya getiren bir sığır ırkı sınıflandırma sistemidir.
 
 ## Proje Hakkında
 
