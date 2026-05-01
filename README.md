@@ -1,6 +1,9 @@
 # CattleBreedClassifier
 
+<<<<<<< HEAD
 An end-to-end deep learning system designed to accurately classify five distinct cattle breeds using advanced Convolutional Neural Network (CNN) architectures and a modern Flask-based web interface.
+=======
+>>>>>>> 8d4239bba74d9d72303d37c310f2a84f064d3486
 
 ## About the Project
 
